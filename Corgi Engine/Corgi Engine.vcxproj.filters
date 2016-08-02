@@ -45,6 +45,7 @@
     <ClInclude Include="src\Corgi.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\Singleton.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
