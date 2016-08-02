@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\engine\core\Game.cpp" />
     <ClCompile Include="src\engine\core\Time.cpp" />
+    <ClCompile Include="src\engine\rendering\Sprite.cpp" />
     <ClCompile Include="src\engine\rendering\Window.cpp" />
     <ClCompile Include="src\game\TestGame.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -30,8 +31,10 @@
     <ClInclude Include="src\engine\core\Game.h" />
     <ClInclude Include="src\engine\Engine.h" />
     <ClInclude Include="src\engine\core\Time.h" />
+    <ClInclude Include="src\engine\rendering\Color.h" />
     <ClInclude Include="src\engine\rendering\Sprite.h" />
     <ClInclude Include="src\engine\rendering\Window.h" />
+    <ClInclude Include="src\engine\Singleton.h" />
     <ClInclude Include="src\game\TestGame.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -87,8 +90,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\yoni\Documents\GalacticGlum\Stream\Projects\2DPlatformer\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\yoni\Documents\GalacticGlum\Stream\Projects\2DPlatformer\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)lib;$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DPlatformer", "2DPlatformer\2DPlatformer.vcxproj", "{9910F3BD-960F-4A9F-8FDC-F495C394289B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Corgi Engine", "Corgi Engine\Corgi Engine.vcxproj", "{9910F3BD-960F-4A9F-8FDC-F495C394289B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
