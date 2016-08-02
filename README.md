@@ -3,7 +3,7 @@ Corgi Engine
 
 ### Build Status ###
 
-![Corgi](https://ci.appveyor.com/api/projects/status/0jkc55b5ilmr39ge?svg=true "Corgi")
+![Corgi](https://ci.appveyor.com/api/projects/status/bsqngefpkhvrhu69?svg=true "Corgi")
 
 Corgi Engine is a simple 2D game engine written in C++ using the SDL2 library.
 Welcome to the Core Engine repository, this repository houses Corgi Engine's source code!
