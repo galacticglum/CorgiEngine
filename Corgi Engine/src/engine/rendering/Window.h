@@ -1,6 +1,9 @@
 #ifndef _ENGINE_WINDOW_H
 #define _ENGINE_WINDOW_H
 
+#include <string>
+#include <SDL/SDL.h>
+
 class Window
 {
 public:

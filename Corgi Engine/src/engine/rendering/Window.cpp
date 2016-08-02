@@ -1,6 +1,7 @@
 #include "Window.h"
+#include <iostream>
 
-Window::Window(uint32_t width, uint32_t height, const std::string &title)
+Window::Window(unsigned int width, unsigned int height, const std::string &title)
 {
 	if (SDL_WasInit(SDL_INIT_VIDEO) == 0)
 	{

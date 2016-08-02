@@ -47,7 +47,7 @@ void Game::Run()
 
 		if (frameTimer >= 1.0)
 		{
-			this->m_FPS = frames;
+			this->m_FPS = static_cast<float>(frames);
 			frames = 0;
 			frameTimer = 0;
 		}
