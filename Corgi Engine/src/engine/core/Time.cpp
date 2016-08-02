@@ -1,4 +1,5 @@
 #include "Time.h"
+#include "SDL/SDL.h"
 
 double Time::m_DeltaTime;
 
