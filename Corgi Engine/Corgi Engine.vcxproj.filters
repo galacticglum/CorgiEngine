@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\game\TestGame.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\rendering\Sprite.cpp">
+      <Filter>src\engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\Game.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\Time.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\rendering\Window.cpp">
+      <Filter>src\engine\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\game\TestGame.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\rendering\Color.h">
+      <Filter>src\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\rendering\Sprite.h">
+      <Filter>src\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\Game.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\Time.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\rendering\Window.h">
+      <Filter>src\engine\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\Engine.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\Singleton.h">
+      <Filter>src\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Corgi.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8598c96e-8f92-4d21-b49f-344af037c66a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{e7d901a6-a54e-48fd-8bd6-c3b6d84084b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{b6d8f762-5155-4a27-9ccb-f24fdf1bbacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\core">
+      <UniqueIdentifier>{116b0bee-4a5a-4385-9488-27ac27ba4104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\rendering">
+      <UniqueIdentifier>{75bc7aac-01ee-45c9-84ed-e0eed7679865}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
