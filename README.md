@@ -29,7 +29,7 @@ Compiling
 2. Install **Visual Studio 2015**.
   Any edition of Visual Studio 2015 can build Corgi Engine. You can download [Visual Studio Community 2015](http://www.visualstudio.com/products/visual-studio-community-vs), which is a free download. Remember to include C++ support as a part of your installation (this is disable by default).
 
-3. Load the project in Visual Studio by double-click on the **Corgi Engine.sln"" file or by opening Visual Studio and going to **File->Open->Project/Solution** and selecting the **Corgi Engine.sln** file and click the **Build** button. Building times will vary depending on your system specs.
+3. Load the project in Visual Studio by double-click on the **Corgi Engine.sln** file or by opening Visual Studio and going to **File->Open->Project/Solution** and selecting the **Corgi Engine.sln** file and click the **Build** button. Building times will vary depending on your system specs.
 
 ## Mac
 
@@ -47,4 +47,4 @@ Demos
 Contributing
 ------------
 
-Any contributions are welcome you can submit a contribution through [pull requests](http://www.help.github.com/articles/using-pull-requests/) on GitHub. Pull requests must adhere to [Corgi Engines unified conventions](https://github.com/GalacticGlum/CorgiEngine/blob/master/docs/Convetions.md).
+Any contributions are welcome you can submit a contribution through [pull requests](http://www.help.github.com/articles/using-pull-requests/) on GitHub. Pull requests must adhere to [Corgi Engines unified conventions](https://github.com/GalacticGlum/CorgiEngine/blob/master/docs/Conventions.md).
