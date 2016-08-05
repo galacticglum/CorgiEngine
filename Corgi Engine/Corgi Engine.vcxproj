@@ -141,7 +141,7 @@
       <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(SolutionDir)lib\dll\x64\*.dll" "$(OutDir)"</Command>
+      <Command> xcopy /d /y "$(SolutionDir)lib\x64\dll\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -185,7 +185,7 @@
       <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command> xcopy /d /y "$(SolutionDir)lib\dll\x64\*.dll" "$(OutDir)"</Command>
+      <Command> xcopy /d /y "$(SolutionDir)lib\x64\dll\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
