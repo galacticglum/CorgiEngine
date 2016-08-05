@@ -1,6 +1,8 @@
 #ifndef _ENGINE_TIME_H
 #define _ENGINE_TIME_H
 
+#include "..\Engine.h"
+
 class Time
 {
 friend class Game;

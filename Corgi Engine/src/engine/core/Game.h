@@ -2,13 +2,10 @@
 #define _ENGINE_GAME_H
 
 #include "../Engine.h"
-
 #include "../rendering/Window.h"
-#include "../Singleton.h"
-#include "../rendering/Sprite.h"
 #include "Time.h"
 
-class Game : public Singleton<Game>
+class Game
 {
 public:
 	inline Game(unsigned int width, unsigned int height, const std::string &title) : Game(width, height, title, 60.0) {}

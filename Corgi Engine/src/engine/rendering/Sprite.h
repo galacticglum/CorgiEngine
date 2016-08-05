@@ -1,5 +1,9 @@
 #ifndef _ENGINE_SPRITE_H
 #define _ENGINE_SPRITE_H
+
+#include "../Engine.h"
+#include "Color.h"
+
 class Sprite
 {
 public:

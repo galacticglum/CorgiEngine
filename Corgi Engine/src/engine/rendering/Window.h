@@ -1,6 +1,8 @@
 #ifndef _ENGINE_WINDOW_H
 #define _ENGINE_WINDOW_H
 
+#include "../Engine.h"
+
 class Window
 {
 public:
