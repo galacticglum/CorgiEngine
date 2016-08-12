@@ -19,6 +19,13 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\maths\Vector2.cpp" />
+    <ClCompile Include="src\engine\rendering\primitives\Rectangle.cpp" />
+    <ClCompile Include="src\engine\rendering\resources\Texture.cpp" />
+    <ClCompile Include="src\engine\core\resources\Resource.cpp" />
+    <ClCompile Include="src\engine\core\resources\Resources.cpp" />
+    <ClCompile Include="src\engine\core\resources\ResourceManager.cpp" />
+    <ClCompile Include="src\engine\core\input\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\TestGame.h">
@@ -45,6 +52,16 @@
     <ClInclude Include="src\Corgi.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\maths\Vector2.h" />
+    <ClInclude Include="src\engine\rendering\primitives\Rectangle.h">
+      <Filter>src\engine\rendering\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\resources\Resource.h" />
+    <ClInclude Include="src\engine\core\resources\ResourceManager.h" />
+    <ClInclude Include="src\engine\core\resources\Resources.h" />
+    <ClInclude Include="src\engine\rendering\resources\Texture.h" />
+    <ClInclude Include="src\engine\core\input\Input.h" />
+    <ClInclude Include="src\engine\core\input\InputDefinitions.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -61,6 +78,12 @@
     </Filter>
     <Filter Include="src\engine\rendering">
       <UniqueIdentifier>{75bc7aac-01ee-45c9-84ed-e0eed7679865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\rendering\primitives">
+      <UniqueIdentifier>{689f7d15-8d1b-40ad-a61e-b40c95bdc8bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\maths">
+      <UniqueIdentifier>{c31ab88b-d34a-4b3b-a92f-3da15fbf4a5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

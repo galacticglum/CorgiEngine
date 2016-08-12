@@ -3,4 +3,6 @@
 
 #include "engine\core\Game.h"
 
+#include "engine\rendering\Sprite.h"
+
 #endif

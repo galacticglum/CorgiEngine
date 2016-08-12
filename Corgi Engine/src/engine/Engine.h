@@ -4,6 +4,10 @@
 #include <time.h>
 #include <iostream>
 #include <string>
+#include <unordered_map>
+#include <iterator>
+#include <memory>
 #include <SDL\SDL.h>
+#include <SDL\SDL_image.h>
 
 #endif

@@ -19,6 +19,8 @@ Game::Game(uint32_t width, uint32_t height, const std::string &title, double fra
 
 	this->m_Window = new Window(width, height, title);
 	m_Running = true;
+
+	Resources::Initialize();
 }
 
 Game::~Game()
@@ -28,6 +30,8 @@ Game::~Game()
 
 void Game::Run()
 {
+	this->OnInitialize();
+
 	double lastTime = Time::GetTime();
 	double frameTimer = 0;
 	double gapTime = 0;
@@ -47,7 +51,7 @@ void Game::Run()
 
 		if (frameTimer >= 1.0)
 		{
-			this->m_FPS = frames;
+			this->m_FPS = (float)frames;
 			frames = 0;
 			frameTimer = 0;
 		}
@@ -90,7 +94,7 @@ void Game::ProcessEvents()
 void Game::Update()
 {
 	ProcessEvents();
-	//Input::Update();
+	Input::GetInstance()->Update();
 	this->OnUpdate();
 }
 
@@ -104,10 +108,10 @@ void Game::Render()
 void Game::Destroy()
 {
 	OnQuit();
-
 	SDL_Quit();
 
 	// Destroy our window
+	Resources::Destroy();
 	delete this->m_Window;
 	this->m_Window = nullptr;
 }

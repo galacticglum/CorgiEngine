@@ -3,23 +3,50 @@
 
 #include "../Engine.h"
 #include "Color.h"
+#include "Window.h"
+#include "primitives\Rectangle.h"
+#include "resources\Texture.h"
+#include "../core/resources/Resources.h"
+#include "../core/resources/Resource.h"
 
-class Sprite
+class Sprite 
 {
 public:
-	Sprite();
+	Sprite(Window* window, std::string& filePath) : Sprite(window, filePath, SDL_BLENDMODE_NONE) { }
+	Sprite(Window* window, std::string& filePath, SDL_BlendMode blendMode);
 	~Sprite();
 
-	void Load(const std::string &fileName);
-	void SetTint(float r, float g, float b);
-	void SetTint(float r, float g, float b, float a);
+	void Crop(const Rectangle& rectangle);
+	// TODO: void Clip(const Vector2& positon, int width, int height);
+
+	void SetTint(float r, float g, float b) { SetTint(Color(r, g, b)); }
+	void SetTint(float r, float g, float b, float a) { SetTint(Color(r, g, b, a)); }
 	void SetTint(Color &color);
 
-	void Draw();
+	void Draw(float x, float y);
+	void Refresh();
 
-	inline SDL_Rect GetRect() { return m_Rect; }
+	void Scale(const Vector2& scale);
+	void Scale(float scaleX, float scaleY) { Scale(Vector2(scaleX, scaleY)); }
+
+	int GetWidth() { return this->m_Width; }
+	int GetHeight() { return this->m_Height; }
+
+	SDL_BlendMode GetBlendMode();
+	void SetBlendMode(SDL_BlendMode blendMode) { SDL_SetTextureBlendMode(this->m_Texture->GetSDLTexture(), blendMode); }
 private:
-	SDL_Rect m_Rect;
+	Window* m_Window;
+	Texture* m_Texture;
+	SDL_Surface* m_TransformedSurface;
+	SDL_Rect m_TransformedRectangle;
+
+	Rectangle* m_Rectangle;
+
+	float m_Angle;
+	Vector2 m_Scale;
+
+	float m_Width;
+	float m_Height;
 };
 
 #endif

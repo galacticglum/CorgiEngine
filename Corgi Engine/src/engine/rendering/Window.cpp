@@ -24,7 +24,25 @@ Window::Window(uint32_t width, uint32_t height, const std::string &title)
 
 	SDL_SetRenderDrawColor(this->m_Renderer, 255, 0, 0, 255);
 
+	this->m_Width = width;
+	this->m_Height = height;
+
 	return;
+}
+
+void Window::RenderTexture(SDL_Texture* texture, Rectangle* source, Rectangle* destination)
+{
+	if (!texture || !source || !destination)
+	{
+		// TODO: logging
+		std::cout << "Window::RenderTexture: render texture failed due to null values!" << std::endl;
+		return;
+	}
+
+	SDL_Rect sdlSource = { (source->GetPosition().X), (source->GetPosition().Y), destination->GetWidth(), destination->GetHeight() };
+	SDL_Rect sdlDestination = {(destination->GetPosition().X), (destination->GetPosition().Y), destination->GetWidth(), destination->GetHeight() };
+
+	SDL_RenderCopy(this->m_Renderer, texture, &sdlSource, &sdlDestination);
 }
 
 void Window::Clear()

@@ -4,6 +4,8 @@
 #include "../Engine.h"
 #include "../rendering/Window.h"
 #include "Time.h"
+#include "resources\Resources.h"
+#include "input\Input.h"
 
 class Game
 {
@@ -22,6 +24,8 @@ public:
 	inline float GetFPS() { return m_FPS; }
 protected:
 	void Run();
+
+	Window* GetWindow() { return this->m_Window; }
 private:
 	Window* m_Window;
 	SDL_Event m_Event;
