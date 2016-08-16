@@ -4,56 +4,45 @@
 #include "../../maths/Vector2.h"
 #include "../../rendering/primitives/Rectangle.h"
 #include "InputDefinitions.h"
+#include "../../rendering/Window.h"
 
 class Input
 {
 public:
-	static Input* GetInstance();
+	Input(Window* window);
+	~Input();
 
-	Input() : m_Keyboard(nullptr), m_Mouse(0), m_MouseX(0), m_MouseY(0), m_CursorLocked(false) { }
-	Input(const Input&) {};
-	void operator=(const Input&) {};
+	bool GetKey(int mouseButton) const { return this->m_Keys[mouseButton]; }
+	bool GetKeyDown(int mouseButton) const { return this->m_DownKeys[mouseButton]; }
+	bool GetKeyUp(int mouseButton) const { return this->m_UpKeys[mouseButton]; }
+	bool GetMouseButton(int mouseButton) const { return this->m_MouseButtons[mouseButton]; }
+	bool GetMouseButtonDown(int mouseButton) const { return this->m_MouseButtonsDown[mouseButton]; }
+	bool GetMouseButtonUp(int mouseButton) const { return this->m_MouseButtonsUp[mouseButton]; }
 
-	void Update();
-	
-	bool GetKeyDown(int keyCode) const;
-	bool GetKeyUp(int keyCode) const;
-	bool GetKey(Key key) const;
-	// Helpers
-	bool GetShift() const;
-	bool GetCtrl() const;
-	bool GetAlt() const;
+	Vector2 GetCursorPosition() const { return Vector2((float)this->m_MouseX, (float)this->m_MouseY); }
+	int GetCursorPositionX() const { return this->m_MouseX; }
+	int GetCursorPositionY() const { return this->m_MouseY; }
 
-	bool GetMouseButtonDown(MouseButton button) const;
-	bool GetMouseButtonUp(MouseButton button) const;
-	bool GetMouseButton(MouseButton button) const; 
-	 
-	Vector2 GetMousePosition() const { return Vector2((float)this->m_MouseX, (float)this->m_MouseY); }
-	int GetMousePositionX() const { return this->GetMousePosition().X; }
-	int GetMousePositionY() const { return this->GetMousePosition().Y; }
+	void SetCursorPosition(Vector2& position) const { SDL_WarpMouseInWindow(m_Window->GetWindow(), (int)position.X, (int)position.Y); }
+	void SetCursorPosition(int x, int y) const { SDL_WarpMouseInWindow(m_Window->GetWindow(), x, y); }
 
-	void LockCursor() { this->m_CursorLocked = true; }
-	void UnlockCursor() { this->m_CursorLocked = false; }
+	void ShowCursor() { SDL_ShowCursor(1); }
+	void HideCursor() { SDL_ShowCursor(0); }
 
-	void ShowCursor() { SDL_ShowCursor(true); }
-	void HideCursor() { SDL_ShowCursor(false); }
+	void Update(SDL_Event event);
 
-	bool GetMouseOver(const Rectangle& rectangle) const;
 private:
-	static Input* m_Instance;
+	bool m_Keys[KEY_COUNT];
+	bool m_DownKeys[KEY_COUNT];
+	bool m_UpKeys[KEY_COUNT];
+	bool m_MouseButtons[MOUSE_BUTTON_COUNT];
+	bool m_MouseButtonsDown[MOUSE_BUTTON_COUNT];
+	bool m_MouseButtonsUp[MOUSE_BUTTON_COUNT];
 
-	SDL_Event m_Event;
-	const uint8_t* m_Keyboard;
-	uint32_t m_Mouse;
 	int m_MouseX;
 	int m_MouseY;
 
-	bool m_KeyDown[KEYBOARD_SIZE];
-	bool m_KeyUp[KEYBOARD_SIZE];
-	bool m_MouseDown[MOUSE_MAX];
-	bool m_MouseUp[MOUSE_MAX];
-
-	bool m_CursorLocked;
+	Window* m_Window;
 };
 
 #endif

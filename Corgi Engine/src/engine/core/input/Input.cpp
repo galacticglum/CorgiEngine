@@ -1,216 +1,77 @@
 #include "Input.h"
 
-Input* Input::m_Instance = nullptr;
-
-Input* Input::GetInstance()
+Input::Input(Window* window) : m_Window(window), m_MouseX(0), m_MouseY(0)
 {
-	if (!m_Instance)
-	{
-		m_Instance = new Input();
-	}
+	// Initialize arrays
+	memset(this->m_Keys, 0, KEY_COUNT * sizeof(bool));
+	memset(this->m_DownKeys, 0, KEY_COUNT * sizeof(bool));
+	memset(this->m_UpKeys, 0, KEY_COUNT * sizeof(bool));
 
-	return m_Instance;
+	memset(this->m_MouseButtons, 0, MOUSE_BUTTON_COUNT * sizeof(bool));
+	memset(this->m_MouseButtonsDown, 0, MOUSE_BUTTON_COUNT * sizeof(bool));
+	memset(this->m_MouseButtonsUp, 0, MOUSE_BUTTON_COUNT * sizeof(bool));
 }
 
-void Input::Update()
+Input::~Input()
 {
-	for (int i = 0; i < KEYBOARD_SIZE; i++)
+	delete this->m_Keys;
+	delete this->m_DownKeys;
+	delete this->m_UpKeys;
+	
+	delete this->m_MouseButtons;
+	delete this->m_MouseButtonsDown;
+	delete this->m_MouseButtonsUp;
+}
+
+void Input::Update(SDL_Event event)
+{
+	// Reset up, down keys and mouse buttons but NOT "holding" keys/buttons.
+	for (int i = 0; i < KEY_COUNT; i++)
 	{
-		this->m_KeyDown[i] = false;
-		this->m_KeyUp[i] = false;
+		this->m_DownKeys[i] = false;
+		this->m_UpKeys[i] = false;
 	}
 
-	for (int i = 0; i < MOUSE_MAX; i++)
+	for (int i = 0; i < MOUSE_BUTTON_COUNT; i++)
 	{
-		this->m_MouseUp[i] = false;
-		this->m_MouseDown[i] = false;
+		this->m_MouseButtonsDown[i] = false;
+		this->m_MouseButtonsUp[i] = false;
 	}
 
-	while (SDL_PollEvent(&this->m_Event))
+	if( event.type == SDL_MOUSEMOTION)
 	{
-		switch (this->m_Event.type)
-		{
-		case SDL_KEYDOWN:
-		{
-			this->m_Keyboard = SDL_GetKeyboardState(nullptr);
+		this->m_MouseX = event.motion.x;
+		this->m_MouseY = event.motion.y;
+	}
+	if (event.type == SDL_KEYDOWN)
+	{
+		int scancode = event.key.keysym.scancode;
 
-			int scancode = this->m_Event.key.keysym.scancode;
-			this->m_KeyDown[scancode] = true;
-		}
-		break;
+		this->m_Keys[scancode] = true;
+		this->m_DownKeys[scancode] = true;
+	}	
+	if (event.type == SDL_KEYUP)
+	{
+		int scancode = event.key.keysym.scancode;
 
-		case SDL_KEYUP:
-		{
-			this->m_Keyboard = SDL_GetKeyboardState(nullptr);
+		this->m_Keys[scancode] = false;
+		this->m_UpKeys[scancode] = true;
+	}
+	if (event.type == SDL_MOUSEBUTTONDOWN)
+	{
+		int buttonCode = event.button.button;
 
-			int scancode = this->m_Event.key.keysym.scancode;
-			this->m_KeyUp[scancode] = true;
-		}
-		break;
+		this->m_MouseButtons[buttonCode] = true;
+		this->m_MouseButtonsDown[buttonCode] = true;
+	}
+	if (event.type == SDL_MOUSEBUTTONUP)
+	{
+		int buttonCode = event.button.button;
 
-		case SDL_MOUSEMOTION:
-		{
-			this->m_MouseX = this->m_Event.motion.x;
-			this->m_MouseY = this->m_Event.motion.y;
-		}
-		break;
-
-		case SDL_MOUSEBUTTONDOWN:
-		{
-			this->m_Mouse = SDL_GetMouseState(&(this->m_MouseX), &(this->m_MouseY));
-
-			if (this->m_Event.button.button == SDL_BUTTON_LEFT)
-			{
-				this->m_MouseDown[MOUSE_LEFT] = true;
-			}
-			else if (this->m_Event.button.button = SDL_BUTTON_RIGHT)
-			{
-				this->m_MouseDown[MOUSE_RIGHT] = true;
-			}
-		}
-		break;
-
-		case SDL_MOUSEBUTTONUP:
-		{
-			this->m_Mouse = SDL_GetMouseState(&(this->m_MouseX), &(this->m_MouseY));
-
-			if (this->m_Event.button.button = SDL_BUTTON_LEFT)
-			{
-				this->m_MouseUp[MOUSE_LEFT] = true;
-			}
-			else if (this->m_Event.button.button = SDL_BUTTON_RIGHT)
-			{
-				this->m_MouseUp[MOUSE_RIGHT] = true;
-			}
-		}
-		break;
-
-		case SDL_MOUSEWHEEL:
-		{
-			// TODO: Scrollwheel
-			// if negative; scrolled to the right
-			// if positive; scrolled to the left
-			//this->m_Event.wheel.x;
-
-			// if negative; scrolled to the down
-			// if positive; scrolled to the up
-			//this->m_Event.wheel.y;
-		}
-		break;
-
-		default:
-			break;
-		}
+		this->m_MouseButtons[buttonCode] = false;
+		this->m_MouseButtonsUp[buttonCode] = true;
 	}
 }
 
-bool Input::GetKeyDown(int keyCode) const
-{
-	if (keyCode < 0 || keyCode >= KEYBOARD_SIZE)
-	{
-		return false;
-	}
 
-	return (this->m_KeyDown[keyCode]);
-}
-
-bool Input::GetKeyUp(int keyCode) const
-{
-	if (keyCode < 0 || keyCode >= KEYBOARD_SIZE)
-	{
-		return false;
-	}
-
-	return (this->m_KeyUp[keyCode]);
-}
-
-bool Input::GetKey(Key key) const
-{
-	if (!this->m_Keyboard)
-	{
-		return false;
-	}
-
-	int scancode = static_cast<int>(key);
-	if (this->m_Keyboard[scancode])
-	{
-		return true;
-	}
-	return false;
-}
-
-bool Input::GetShift() const
-{
-	return(this->GetKey(KEY_LEFT_SHIFT) || this->GetKey(KEY_RIGHT_SHIFT));
-}
-
-bool Input::GetCtrl() const
-{
-	return(this->GetKey(KEY_LEFT_CTRL) || this->GetKey(KEY_RIGHT_CTRL));
-}
-
-bool Input::GetAlt() const
-{
-	return(this->GetKey(KEY_LEFT_ALT) || this->GetKey(KEY_RIGHT_ALT));
-}
-
-bool Input::GetMouseButtonDown(MouseButton button) const
-{
-	if (button == MOUSE_MAX)
-	{
-		return false;
-	}
-
-	return this->m_MouseDown[button];
-}
-
-bool Input::GetMouseButtonUp(MouseButton button) const
-{
-	if (button == MOUSE_MAX)
-	{
-		return false;
-	}
-
-	return this->m_MouseUp[button];
-}
-
-bool Input::GetMouseButton(MouseButton button) const
-{
-	switch (button)
-	{
-	case MOUSE_LEFT:
-	{
-		if (this->m_Mouse & SDL_BUTTON(1))
-		{
-			return true;
-		}
-	}
-	break;
-
-	case MOUSE_RIGHT:
-	{
-		if (this->m_Mouse & SDL_BUTTON(3))
-		{
-			return true;
-		}
-	}
-	break;
-
-	default:
-		break;
-	}
-
-	return false;
-}
-
-bool Input::GetMouseOver(const Rectangle& rectangle) const
-{
-	if ((this->m_MouseX >= rectangle.GetPosition().X) && 
-		(this->m_MouseX <= rectangle.GetPosition().X + rectangle.GetWidth()) && 
-		(this->m_MouseY >= rectangle.GetPosition().Y) && 
-	    (this->m_MouseY <= rectangle.GetPosition().Y + rectangle.GetHeight()))
-	{
-		return true;
-	}
-}
 

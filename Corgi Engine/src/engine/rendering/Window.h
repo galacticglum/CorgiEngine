@@ -2,7 +2,7 @@
 #define _ENGINE_WINDOW_H
 
 #include "../Engine.h"
-#include "primitives\Rectangle.h"
+#include "primitives/Rectangle.h"
 
 class Window
 {
@@ -13,6 +13,8 @@ public:
 	void RenderTexture(SDL_Texture* texture, Rectangle* source, Rectangle* destination);
 	void Clear();
 	void SwapBuffers();
+
+	void SetTitle(const std::string& title);
 
 	SDL_Window* GetWindow() { return m_Window; }
 	SDL_Renderer* GetRenderer() { return m_Renderer; }

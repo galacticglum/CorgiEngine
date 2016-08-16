@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game(uint32_t width, uint32_t height, const std::string &title, double frameCap) : m_Window(nullptr)
+Game::Game(unsigned int width, unsigned int height, const std::string &title, double frameCap) : m_Running(false), m_Window(nullptr), m_FPS(0), m_UPS(0)
 {
 	if (frameCap <= 0)
 	{
@@ -8,7 +8,7 @@ Game::Game(uint32_t width, uint32_t height, const std::string &title, double fra
 		frameCap = 60.0;
 	}
 
-	this->m_FrameTime = (1.0 / frameCap);
+	this->m_FrameCap = (1.0 / frameCap);
 
 	// Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) != 0)
@@ -21,22 +21,24 @@ Game::Game(uint32_t width, uint32_t height, const std::string &title, double fra
 	m_Running = true;
 
 	Resources::Initialize();
+	m_Input = new Input(this->m_Window);
 }
 
 Game::~Game()
 {
+
 	this->Destroy();
 }
 
 void Game::Run()
 {
 	this->OnInitialize();
-
 	double lastTime = Time::GetTime();
-	double frameTimer = 0;
+	double updateTimer = 0;
 	double gapTime = 0;
 
 	int frames = 0;
+	int updates = 0;
 
 	while (this->m_Running)
 	{
@@ -47,22 +49,25 @@ void Game::Run()
 		lastTime = startTime;
 
 		gapTime += deltaTime;
-		frameTimer += deltaTime;
+		updateTimer += deltaTime;
 
-		if (frameTimer >= 1.0)
+		if (updateTimer >= 1.0)
 		{
-			this->m_FPS = (float)frames;
+			this->m_FPS = frames;
+			this->m_UPS = updates;
 			frames = 0;
-			frameTimer = 0;
+			updates = 0;
+			updateTimer = 0;
 		}
 
-		while (gapTime > (this->m_FrameTime))
+		while (gapTime > this->m_FrameCap)
 		{
-			Time::SetDeltaTime(deltaTime);
-			this->Update();
-			doRender = true;
+			Time::m_DeltaTime = (float)m_FrameCap;
+			this->Update();	
+			updates++;
 
-			gapTime -= (this->m_FrameTime);
+			doRender = true;
+			gapTime -= this->m_FrameCap;
 		}
 
 		if (doRender)
@@ -72,9 +77,10 @@ void Game::Run()
 		}
 		else
 		{
-			SDL_Delay(1);
+			Time::Pause(1);
 		}
 	}
+
 }
 
 void Game::ProcessEvents()
@@ -94,7 +100,7 @@ void Game::ProcessEvents()
 void Game::Update()
 {
 	ProcessEvents();
-	Input::GetInstance()->Update();
+	m_Input->Update(this->m_Event);
 	this->OnUpdate();
 }
 
@@ -114,4 +120,5 @@ void Game::Destroy()
 	Resources::Destroy();
 	delete this->m_Window;
 	this->m_Window = nullptr;
+	delete this->m_Input;
 }

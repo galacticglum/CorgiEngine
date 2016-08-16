@@ -4,8 +4,8 @@
 #include "../Engine.h"
 #include "Color.h"
 #include "Window.h"
-#include "primitives\Rectangle.h"
-#include "resources\Texture.h"
+#include "primitives/Rectangle.h"
+#include "resources/Texture.h"
 #include "../core/resources/Resources.h"
 #include "../core/resources/Resource.h"
 

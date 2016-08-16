@@ -55,6 +55,11 @@ void Window::SwapBuffers()
 	SDL_RenderPresent(this->m_Renderer);
 }
 
+void Window::SetTitle(const std::string& title)
+{
+	SDL_SetWindowTitle(this->m_Window, title.c_str());
+}
+
 void Window::Destroy()
 {
 	if (this->m_Renderer)

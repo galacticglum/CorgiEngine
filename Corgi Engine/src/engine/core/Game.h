@@ -3,15 +3,15 @@
 
 #include "../Engine.h"
 #include "../rendering/Window.h"
-#include "Time.h"
-#include "resources\Resources.h"
-#include "input\Input.h"
+#include "resources/Resources.h"
+#include "input/Input.h"
+#include "time/Time.h"
 
 class Game
 {
 public:
-	inline Game(unsigned int width, unsigned int height, const std::string &title) : Game(width, height, title, 60.0) {}
-	Game(unsigned int width, unsigned int height, const std::string &title, double frameRate);
+	Game(unsigned int width, unsigned int height, const std::string &title) : Game(width, height, title, 60.0) {}
+	Game(unsigned int width, unsigned int height, const std::string &title, double frameCap);
 	virtual ~Game();
 
 	virtual void OnInitialize() {}
@@ -21,18 +21,22 @@ public:
 
 	void Destroy();
 
-	inline float GetFPS() { return m_FPS; }
+	int GetFPS() { return m_FPS; }
+	int GetUPS() { return m_UPS; }
 protected:
 	void Run();
 
+	Input* GetInput() { return this->m_Input; }
 	Window* GetWindow() { return this->m_Window; }
 private:
 	Window* m_Window;
+	Input* m_Input;
 	SDL_Event m_Event;
 
 	// FPS-
-	double m_FrameTime;
-	float m_FPS;
+	double m_FrameCap;
+	int m_FPS;
+	int m_UPS;
 
 	bool m_Running;
 

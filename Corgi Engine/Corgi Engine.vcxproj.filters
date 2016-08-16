@@ -1,16 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\game\TestGame.cpp">
-      <Filter>src\game</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\rendering\Sprite.cpp">
       <Filter>src\engine\rendering</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\core\Game.cpp">
-      <Filter>src\engine\core</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\core\Time.cpp">
       <Filter>src\engine\core</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\rendering\Window.cpp">
@@ -26,6 +20,10 @@
     <ClCompile Include="src\engine\core\resources\Resources.cpp" />
     <ClCompile Include="src\engine\core\resources\ResourceManager.cpp" />
     <ClCompile Include="src\engine\core\input\Input.cpp" />
+    <ClCompile Include="src\engine\core\time\Time.cpp" />
+    <ClCompile Include="src\engine\core\time\Timer.cpp" />
+    <ClCompile Include="src\engine\system\MemoryManager.cpp" />
+    <ClCompile Include="src\engine\system\MemoryAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\TestGame.h">
@@ -38,9 +36,6 @@
       <Filter>src\engine\rendering</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\core\Game.h">
-      <Filter>src\engine\core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\core\Time.h">
       <Filter>src\engine\core</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\rendering\Window.h">
@@ -62,6 +57,15 @@
     <ClInclude Include="src\engine\rendering\resources\Texture.h" />
     <ClInclude Include="src\engine\core\input\Input.h" />
     <ClInclude Include="src\engine\core\input\InputDefinitions.h" />
+    <ClInclude Include="src\engine\core\StringFormatter.h" />
+    <ClInclude Include="src\engine\core\time\Time.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\time\Timer.h" />
+    <ClInclude Include="src\engine\system\MemoryManager.h" />
+    <ClInclude Include="src\engine\system\Memory.h" />
+    <ClInclude Include="src\engine\system\MemoryAllocator.h" />
+    <ClInclude Include="src\engine\system\MemoryStats.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -85,5 +89,8 @@
     <Filter Include="src\engine\maths">
       <UniqueIdentifier>{c31ab88b-d34a-4b3b-a92f-3da15fbf4a5d}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\engine\system\Types.h" />
   </ItemGroup>
 </Project>
