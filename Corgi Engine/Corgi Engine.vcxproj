@@ -31,6 +31,7 @@
     <ClCompile Include="src\engine\rendering\resources\Texture.cpp" />
     <ClCompile Include="src\engine\rendering\Sprite.cpp" />
     <ClCompile Include="src\engine\rendering\Window.cpp" />
+    <ClCompile Include="src\engine\system\Memory.cpp" />
     <ClCompile Include="src\engine\system\MemoryAllocator.cpp" />
     <ClCompile Include="src\engine\system\MemoryManager.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -54,7 +55,6 @@
     <ClInclude Include="src\engine\rendering\Sprite.h" />
     <ClInclude Include="src\engine\rendering\Window.h" />
     <ClInclude Include="src\engine\system\MemoryAllocator.h" />
-    <ClInclude Include="src\engine\system\Memory.h" />
     <ClInclude Include="src\engine\system\MemoryManager.h" />
     <ClInclude Include="src\engine\system\MemoryStats.h" />
     <ClInclude Include="src\game\TestGame.h" />

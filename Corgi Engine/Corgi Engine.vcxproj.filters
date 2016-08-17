@@ -22,8 +22,15 @@
     <ClCompile Include="src\engine\core\input\Input.cpp" />
     <ClCompile Include="src\engine\core\time\Time.cpp" />
     <ClCompile Include="src\engine\core\time\Timer.cpp" />
-    <ClCompile Include="src\engine\system\MemoryManager.cpp" />
-    <ClCompile Include="src\engine\system\MemoryAllocator.cpp" />
+    <ClCompile Include="src\engine\system\Memory.cpp">
+      <Filter>src\engine\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\system\MemoryAllocator.cpp">
+      <Filter>src\engine\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\system\MemoryManager.cpp">
+      <Filter>src\engine\system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\TestGame.h">
@@ -62,10 +69,15 @@
       <Filter>src\engine\core</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\core\time\Timer.h" />
-    <ClInclude Include="src\engine\system\MemoryManager.h" />
-    <ClInclude Include="src\engine\system\Memory.h" />
-    <ClInclude Include="src\engine\system\MemoryAllocator.h" />
-    <ClInclude Include="src\engine\system\MemoryStats.h" />
+    <ClInclude Include="src\engine\system\MemoryAllocator.h">
+      <Filter>src\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\system\MemoryManager.h">
+      <Filter>src\engine\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\system\MemoryStats.h">
+      <Filter>src\engine\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -88,6 +100,9 @@
     </Filter>
     <Filter Include="src\engine\maths">
       <UniqueIdentifier>{c31ab88b-d34a-4b3b-a92f-3da15fbf4a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\system">
+      <UniqueIdentifier>{abdc999e-3ec9-4159-bccd-88449f3bc7da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

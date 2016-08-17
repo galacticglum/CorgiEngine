@@ -23,7 +23,7 @@ void* MemoryAllocator::Allocate(size_t size)
 void MemoryAllocator::Free(void* block)
 {
 	uint8_t* memory = ((uint8_t*)block) - sizeof(size_t);
-	size_t size = (size_t)memory;
+	size_t size = (size_t)*memory;
 
 	MemoryManager::GetInstance()->m_MemoryStats.totalFreed += size;
 	MemoryManager::GetInstance()->m_MemoryStats.currentUsage -= size;
