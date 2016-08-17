@@ -14,13 +14,7 @@ Input::Input(Window* window) : m_Window(window), m_MouseX(0), m_MouseY(0)
 
 Input::~Input()
 {
-	delete this->m_Keys;
-	delete this->m_DownKeys;
-	delete this->m_UpKeys;
-	
-	delete this->m_MouseButtons;
-	delete this->m_MouseButtonsDown;
-	delete this->m_MouseButtonsUp;
+
 }
 
 void Input::Update(SDL_Event event)

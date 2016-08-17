@@ -1,5 +1,4 @@
 #include "MemoryManager.h"
-#include "Memory.h"
 
 MemoryManager* MemoryManager::s_Instance = nullptr;
 
@@ -15,5 +14,5 @@ MemoryManager* MemoryManager::GetInstance()
 
 void MemoryManager::Quit()
 {
-	cdelete s_Instance;
+	free(s_Instance);
 }
