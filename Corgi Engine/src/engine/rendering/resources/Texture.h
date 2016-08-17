@@ -1,7 +1,7 @@
 #ifndef _ENGINE_TEXTURE_H
 #define _ENGINE_TEXTURE_H
 
-#include "../../core/resources/Resource.h"
+#include "../../core/resource/Resource.h"
 #include "../Window.h"
 
 class Texture : public Resource

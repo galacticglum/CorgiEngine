@@ -12,7 +12,7 @@ void Texture::Destroy()
 
 void Texture::Load()
 {
-	this->m_Texture = IMG_LoadTexture(this->m_Window->GetRenderer(), this->GetFilePath().c_str());
+	this->m_Texture = IMG_LoadTexture(this->m_Window->GetSDLRenderer(), this->GetFilePath().c_str());
 
 	if (!this->m_Texture)
 	{

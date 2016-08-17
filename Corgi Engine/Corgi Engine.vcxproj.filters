@@ -4,9 +4,6 @@
     <ClCompile Include="src\engine\rendering\Sprite.cpp">
       <Filter>src\engine\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\core\Game.cpp">
-      <Filter>src\engine\core</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\rendering\Window.cpp">
       <Filter>src\engine\rendering</Filter>
     </ClCompile>
@@ -14,14 +11,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\maths\Vector2.cpp" />
-    <ClCompile Include="src\engine\rendering\primitives\Rectangle.cpp" />
     <ClCompile Include="src\engine\rendering\resources\Texture.cpp" />
-    <ClCompile Include="src\engine\core\resources\Resource.cpp" />
-    <ClCompile Include="src\engine\core\resources\Resources.cpp" />
-    <ClCompile Include="src\engine\core\resources\ResourceManager.cpp" />
     <ClCompile Include="src\engine\core\input\Input.cpp" />
     <ClCompile Include="src\engine\core\time\Time.cpp" />
-    <ClCompile Include="src\engine\core\time\Timer.cpp" />
     <ClCompile Include="src\engine\system\Memory.cpp">
       <Filter>src\engine\system</Filter>
     </ClCompile>
@@ -31,6 +23,14 @@
     <ClCompile Include="src\engine\system\MemoryManager.cpp">
       <Filter>src\engine\system</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\maths\Rectangle.cpp" />
+    <ClCompile Include="src\engine\core\resource\Resource.cpp" />
+    <ClCompile Include="src\engine\core\resource\ResourceManager.cpp" />
+    <ClCompile Include="src\engine\core\resource\Resources.cpp" />
+    <ClCompile Include="src\engine\core\Game.cpp">
+      <Filter>src\engine\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\core\object\GameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\TestGame.h">
@@ -42,9 +42,6 @@
     <ClInclude Include="src\engine\rendering\Sprite.h">
       <Filter>src\engine\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\core\Game.h">
-      <Filter>src\engine\core</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\rendering\Window.h">
       <Filter>src\engine\rendering</Filter>
     </ClInclude>
@@ -55,20 +52,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\maths\Vector2.h" />
-    <ClInclude Include="src\engine\rendering\primitives\Rectangle.h">
-      <Filter>src\engine\rendering\primitives</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\core\resources\Resource.h" />
-    <ClInclude Include="src\engine\core\resources\ResourceManager.h" />
-    <ClInclude Include="src\engine\core\resources\Resources.h" />
     <ClInclude Include="src\engine\rendering\resources\Texture.h" />
     <ClInclude Include="src\engine\core\input\Input.h" />
     <ClInclude Include="src\engine\core\input\InputDefinitions.h" />
-    <ClInclude Include="src\engine\core\StringFormatter.h" />
     <ClInclude Include="src\engine\core\time\Time.h">
       <Filter>src\engine\core</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\core\time\Timer.h" />
     <ClInclude Include="src\engine\system\MemoryAllocator.h">
       <Filter>src\engine\system</Filter>
     </ClInclude>
@@ -78,6 +67,20 @@
     <ClInclude Include="src\engine\system\MemoryStats.h">
       <Filter>src\engine\system</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\String.h" />
+    <ClInclude Include="src\engine\maths\Rectangle.h">
+      <Filter>src\engine\rendering\primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\resource\Resource.h" />
+    <ClInclude Include="src\engine\core\resource\ResourceManager.h" />
+    <ClInclude Include="src\engine\core\resource\Resources.h" />
+    <ClInclude Include="src\engine\core\scene management\Scene.h" />
+    <ClInclude Include="src\engine\core\object\Component.h" />
+    <ClInclude Include="src\engine\core\object\GameObject.h" />
+    <ClInclude Include="src\engine\core\Game.h">
+      <Filter>src\engine\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\core\object\Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

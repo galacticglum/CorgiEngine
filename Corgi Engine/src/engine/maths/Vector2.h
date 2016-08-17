@@ -60,6 +60,9 @@ struct Vector2
 	std::string ToString() const;
 
 	std::ostream& operator<<(std::ostream& stream) const;
+
+	static const Vector2 Zero() { return Vector2(0, 0); }
+	static const Vector2 One() { return Vector2(1, 1); }
 };
 
 #endif

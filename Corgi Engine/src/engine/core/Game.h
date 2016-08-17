@@ -3,7 +3,7 @@
 
 #include "../Engine.h"
 #include "../rendering/Window.h"
-#include "resources/Resources.h"
+#include "resource/Resources.h"
 #include "input/Input.h"
 #include "time/Time.h"
 

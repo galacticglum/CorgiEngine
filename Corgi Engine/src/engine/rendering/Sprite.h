@@ -4,10 +4,10 @@
 #include "../Engine.h"
 #include "Color.h"
 #include "Window.h"
-#include "primitives/Rectangle.h"
+#include "../maths/Rectangle.h"
 #include "resources/Texture.h"
-#include "../core/resources/Resources.h"
-#include "../core/resources/Resource.h"
+#include "../core/resource/Resources.h"
+#include "../core/resource/Resource.h"
 
 class Sprite 
 {

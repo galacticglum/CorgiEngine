@@ -2,7 +2,7 @@
 #define _ENGINE_WINDOW_H
 
 #include "../Engine.h"
-#include "primitives/Rectangle.h"
+#include "../maths/Rectangle.h"
 
 class Window
 {
@@ -17,8 +17,8 @@ public:
 
 	void SetTitle(const std::string& title);
 
-	SDL_Window* GetWindow() { return m_Window; }
-	SDL_Renderer* GetRenderer() { return m_Renderer; }
+	SDL_Window* GetSDLWindow() { return m_Window; }
+	SDL_Renderer* GetSDLRenderer() { return m_Renderer; }
 
 	unsigned int GetWidth() { return this->m_Width; }
 	unsigned int GetHeight() { return this->m_Height; }

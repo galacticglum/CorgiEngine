@@ -1,7 +1,7 @@
 #ifndef _ENGINE_RECTANGLE_H
 #define _ENGINE_RECTANGLE_H
 
-#include "../../maths/Vector2.h"
+#include "Vector2.h"
 
 class Rectangle
 {

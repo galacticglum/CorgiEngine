@@ -26,8 +26,17 @@ Game::Game(unsigned int width, unsigned int height, const std::string &title, do
 
 Game::~Game()
 {
-
 	this->Destroy();
+
+	MemoryStats memStats = MemoryManager::GetInstance()->GetMemoryStats();
+	std::cerr << "\n----------------------------------------------" << "\n";
+	std::cerr << "Memory Allocated: " << MemoryManager::BytesToString(memStats.TotalAllocated) << "\n";
+	std::cerr << "Memory Freed: " << MemoryManager::BytesToString(memStats.TotalFreed) << "\n";
+	std::cerr << "Current Memory Usage: " << MemoryManager::BytesToString(memStats.CurrentUsage) << "\n";
+	std::cerr << "----------------------------------------------" << "\n";
+	std::cerr << "Memory Allocations: " << memStats.TotalAllocations << "\n";
+	std::cerr << "Memory Deallocations: " << memStats.TotalDeallocations << "\n";
+	std::cerr << "----------------------------------------------" << "\n\n";
 }
 
 void Game::Run()
@@ -41,11 +50,14 @@ void Game::Run()
 	int updates = 0;
 
 	MemoryStats memStats = MemoryManager::GetInstance()->GetMemoryStats();
-	std::cerr << "Memory allocated: " << memStats.totalAllocated << "\n";
-	std::cerr << "Memory deallocated: " << memStats.totalDeallocated << "\n";
-	std::cerr << "Memory freed: " << memStats.totalFreed << "\n";
-	std::cerr << "Memory allocations: " << memStats.totalAllocations << "\n";
-	std::cerr << "Unreleased memory: " << memStats.currentUsage << "\n";
+	std::cerr << "----------------------------------------------" << "\n";
+	std::cerr << "Memory Allocated: " << MemoryManager::BytesToString(memStats.TotalAllocated) << "\n";
+	std::cerr << "Memory Freed: " << MemoryManager::BytesToString(memStats.TotalFreed) << "\n";
+	std::cerr << "Current Memory Usage: " << MemoryManager::BytesToString(memStats.CurrentUsage) << "\n";
+	std::cerr << "----------------------------------------------" << "\n";
+	std::cerr << "Memory Allocations: " << memStats.TotalAllocations << "\n";
+	std::cerr << "Memory Deallocations: " << memStats.TotalDeallocations << "\n";
+	std::cerr << "----------------------------------------------" << "\n\n";
 
 	while (this->m_Running)
 	{
@@ -127,11 +139,4 @@ void Game::Destroy()
 	this->m_Window = nullptr;
 	delete this->m_Input;
 	this->m_Input = nullptr;
-
-	MemoryStats memStats = MemoryManager::GetInstance()->GetMemoryStats();
-	std::cerr << "Memory allocated: " << memStats.totalAllocated << "\n";
-	std::cerr << "Memory deallocated: " << memStats.totalDeallocated << "\n";
-	std::cerr << "Memory freed: " << memStats.totalFreed << "\n";
-	std::cerr << "Memory allocations: " << memStats.totalAllocations << "\n";
-	std::cerr << "Unreleased memory: " << memStats.currentUsage << "\n";
 }

@@ -2,7 +2,7 @@
 #define _ENGINE_INPUT_H
 
 #include "../../maths/Vector2.h"
-#include "../../rendering/primitives/Rectangle.h"
+#include "../../maths/Rectangle.h"
 #include "InputDefinitions.h"
 #include "../../rendering/Window.h"
 
@@ -23,8 +23,8 @@ public:
 	int GetCursorPositionX() const { return this->m_MouseX; }
 	int GetCursorPositionY() const { return this->m_MouseY; }
 
-	void SetCursorPosition(Vector2& position) const { SDL_WarpMouseInWindow(m_Window->GetWindow(), (int)position.X, (int)position.Y); }
-	void SetCursorPosition(int x, int y) const { SDL_WarpMouseInWindow(m_Window->GetWindow(), x, y); }
+	void SetCursorPosition(Vector2& position) const { SDL_WarpMouseInWindow(m_Window->GetSDLWindow(), (int)position.X, (int)position.Y); }
+	void SetCursorPosition(int x, int y) const { SDL_WarpMouseInWindow(m_Window->GetSDLWindow(), x, y); }
 
 	void ShowCursor() { SDL_ShowCursor(1); }
 	void HideCursor() { SDL_ShowCursor(0); }

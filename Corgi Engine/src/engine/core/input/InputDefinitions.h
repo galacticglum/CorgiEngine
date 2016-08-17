@@ -25,7 +25,6 @@ typedef enum
 	*  These values are from usage page 0x07 (USB keyboard page).
 	*/
 	/*@{*/
-
 	KEY_A = 4,
 	KEY_B = 5,
 	KEY_C = 6,
@@ -52,7 +51,6 @@ typedef enum
 	KEY_X = 27,
 	KEY_Y = 28,
 	KEY_Z = 29,
-
 	KEY_1 = 30,
 	KEY_2 = 31,
 	KEY_3 = 32,
@@ -63,68 +61,24 @@ typedef enum
 	KEY_8 = 37,
 	KEY_9 = 38,
 	KEY_0 = 39,
-
 	KEY_RETURN = 40,
 	KEY_ESCAPE = 41,
 	KEY_BACKSPACE = 42,
 	KEY_TAB = 43,
 	KEY_SPACE = 44,
-
 	KEY_MINUS = 45,
 	KEY_EQUALS = 46,
 	KEY_LEFTBRACKET = 47,
 	KEY_RIGHTBRACKET = 48,
-	KEY_BACKSLASH = 49, /**< Located at the lower left of the return
-						*   key on ISO keyboards and at the right end
-						*   of the QWERTY row on ANSI keyboards.
-						*   Produces REVERSE SOLIDUS (backslash) and
-						*   VERTICAL LINE in a US layout, REVERSE
-						*   SOLIDUS and VERTICAL LINE in a UK Mac
-						*   layout, NUMBER SIGN and TILDE in a UK
-						*   Windows layout, DOLLAR SIGN and POUND SIGN
-						*   in a Swiss German layout, NUMBER SIGN and
-						*   APOSTROPHE in a German layout, GRAVE
-						*   ACCENT and POUND SIGN in a French Mac
-						*   layout, and ASTERISK and MICRO SIGN in a
-						*   French Windows layout.
-						*/
-	KEY_NONUSHASH = 50, /**< ISO USB keyboards actually use this code
-						*   instead of 49 for the same key, but all
-						*   OSes I've seen treat the two codes
-						*   identically. So, as an implementor, unless
-						*   your keyboard generates both of those
-						*   codes and your OS treats them differently,
-						*   you should generate KEY_BACKSLASH
-						*   instead of this code. As a user, you
-						*   should not rely on this code because SDL
-						*   will never generate it with most (all?)
-						*   keyboards.
-						*/
+	KEY_BACKSLASH = 49,
+	KEY_NONUSHASH = 50,
 	KEY_SEMICOLON = 51,
 	KEY_APOSTROPHE = 52,
-	KEY_GRAVE = 53, /**< Located in the top left corner (on both ANSI
-					*   and ISO keyboards). Produces GRAVE ACCENT and
-					*   TILDE in a US Windows layout and in US and UK
-					*   Mac layouts on ANSI keyboards, GRAVE ACCENT
-					*   and NOT SIGN in a UK Windows layout, SECTION
-					*   SIGN and PLUS-MINUS SIGN in US and UK Mac
-					*   layouts on ISO keyboards, SECTION SIGN and
-					*   DEGREE SIGN in a Swiss German layout (Mac:
-					*   only on ISO keyboards), CIRCUMFLEX ACCENT and
-					*   DEGREE SIGN in a German layout (Mac: only on
-					*   ISO keyboards), SUPERSCRIPT TWO and TILDE in a
-					*   French Windows layout, COMMERCIAL AT and
-					*   NUMBER SIGN in a French Mac layout on ISO
-					*   keyboards, and LESS-THAN SIGN and GREATER-THAN
-					*   SIGN in a Swiss German, German, or French Mac
-					*   layout on ANSI keyboards.
-					*/
+	KEY_GRAVE = 53,
 	KEY_COMMA = 54,
 	KEY_PERIOD = 55,
 	KEY_SLASH = 56,
-
 	KEY_CAPSLOCK = 57,
-
 	KEY_F1 = 58,
 	KEY_F2 = 59,
 	KEY_F3 = 60,
@@ -137,12 +91,10 @@ typedef enum
 	KEY_F10 = 67,
 	KEY_F11 = 68,
 	KEY_F12 = 69,
-
 	KEY_PRINTSCREEN = 70,
 	KEY_SCROLLLOCK = 71,
 	KEY_PAUSE = 72,
-	KEY_INSERT = 73, /**< insert on PC, help on some Mac keyboards (but
-					 does send code 73, not 117) */
+	KEY_INSERT = 73,
 	KEY_HOME = 74,
 	KEY_PAGEUP = 75,
 	KEY_DELETE = 76,
@@ -152,9 +104,7 @@ typedef enum
 	KEY_LEFT = 80,
 	KEY_DOWN = 81,
 	KEY_UP = 82,
-
-	KEY_NUMLOCKCLEAR = 83, /**< num lock on PC, clear on Mac keyboards
-						   */
+	KEY_NUMLOCKCLEAR = 83,
 	KEY_KP_DIVIDE = 84,
 	KEY_KP_MULTIPLY = 85,
 	KEY_KP_MINUS = 86,
@@ -172,20 +122,9 @@ typedef enum
 	KEY_KP_0 = 98,
 	KEY_KP_PERIOD = 99,
 
-	KEY_NONUSBACKSLASH = 100, /**< This is the additional key that ISO
-							  *   keyboards have over ANSI ones,
-							  *   located between left shift and Y.
-							  *   Produces GRAVE ACCENT and TILDE in a
-							  *   US or UK Mac layout, REVERSE SOLIDUS
-							  *   (backslash) and VERTICAL LINE in a
-							  *   US or UK Windows layout, and
-							  *   LESS-THAN SIGN and GREATER-THAN SIGN
-							  *   in a Swiss German, German, or French
-							  *   layout. */
-	KEY_APPLICATION = 101, /**< windows contextual menu, compose */
-	KEY_POWER = 102, /**< The USB document says this is a status flag,
-					 *   not a physical key - but some Mac keyboards
-					 *   do have a power key. */
+	KEY_NONUSBACKSLASH = 100,
+	KEY_APPLICATION = 101,
+	KEY_POWER = 102,
 	KEY_KP_EQUALS = 103,
 	KEY_F13 = 104,
 	KEY_F14 = 105,
@@ -204,7 +143,7 @@ typedef enum
 	KEY_MENU = 118,
 	KEY_SELECT = 119,
 	KEY_STOP = 120,
-	KEY_AGAIN = 121,   /**< redo */
+	KEY_AGAIN = 121,
 	KEY_UNDO = 122,
 	KEY_CUT = 123,
 	KEY_COPY = 124,
@@ -213,34 +152,30 @@ typedef enum
 	KEY_MUTE = 127,
 	KEY_VOLUMEUP = 128,
 	KEY_VOLUMEDOWN = 129,
-	/* not sure whether there's a reason to enable these */
-	/*     KEY_LOCKINGCAPSLOCK = 130,  */
-	/*     KEY_LOCKINGNUMLOCK = 131, */
-	/*     KEY_LOCKINGSCROLLLOCK = 132, */
 	KEY_KP_COMMA = 133,
 	KEY_KP_EQUALSAS400 = 134,
 
-	KEY_INTERNATIONAL1 = 135, /**< used on Asian keyboards, see
-							  footnotes in USB doc */
+	KEY_INTERNATIONAL1 = 135,
+
 	KEY_INTERNATIONAL2 = 136,
-	KEY_INTERNATIONAL3 = 137, /**< Yen */
+	KEY_INTERNATIONAL3 = 137,
 	KEY_INTERNATIONAL4 = 138,
 	KEY_INTERNATIONAL5 = 139,
 	KEY_INTERNATIONAL6 = 140,
 	KEY_INTERNATIONAL7 = 141,
 	KEY_INTERNATIONAL8 = 142,
 	KEY_INTERNATIONAL9 = 143,
-	KEY_LANG1 = 144, /**< Hangul/English toggle */
-	KEY_LANG2 = 145, /**< Hanja conversion */
-	KEY_LANG3 = 146, /**< Katakana */
-	KEY_LANG4 = 147, /**< Hiragana */
-	KEY_LANG5 = 148, /**< Zenkaku/Hankaku */
-	KEY_LANG6 = 149, /**< reserved */
-	KEY_LANG7 = 150, /**< reserved */
-	KEY_LANG8 = 151, /**< reserved */
-	KEY_LANG9 = 152, /**< reserved */
+	KEY_LANG1 = 144,
+	KEY_LANG2 = 145,
+	KEY_LANG3 = 146,
+	KEY_LANG4 = 147,
+	KEY_LANG5 = 148,
+	KEY_LANG6 = 149,
+	KEY_LANG7 = 150,
+	KEY_LANG8 = 151,
+	KEY_LANG9 = 152,
 
-	KEY_ALTERASE = 153, /**< Erase-Eaze */
+	KEY_ALTERASE = 153,
 	KEY_SYSREQ = 154,
 	KEY_CANCEL = 155,
 	KEY_CLEAR = 156,
@@ -302,58 +237,35 @@ typedef enum
 
 	KEY_LCTRL = 224,
 	KEY_LSHIFT = 225,
-	KEY_LALT = 226, /**< alt, option */
-	KEY_LGUI = 227, /**< windows, command (apple), meta */
+	KEY_LALT = 226,
+	KEY_LGUI = 227,
 	KEY_RCTRL = 228,
 	KEY_RSHIFT = 229,
-	KEY_RALT = 230, /**< alt gr, option */
-	KEY_RGUI = 231, /**< windows, command (apple), meta */
+	KEY_RALT = 230,
+	KEY_RGUI = 231,
 
-	KEY_MODE = 257,    /**< I'm not sure if this is really not covered
-					   *   by any of the above, but since there's a
-					   *   special KMOD_MODE for it I'm adding it here
-					   */
+	KEY_MODE = 257,
 
-					   /*@}*//*Usage page 0x07*/
-
-							 /**
-							 *  \name Usage page 0x0C
-							 *
-							 *  These values are mapped from usage page 0x0C (USB consumer page).
-							 */
-							 /*@{*/
-
-							 KEY_AUDIONEXT = 258,
-							 KEY_AUDIOPREV = 259,
-							 KEY_AUDIOSTOP = 260,
-							 KEY_AUDIOPLAY = 261,
-							 KEY_AUDIOMUTE = 262,
-							 KEY_MEDIASELECT = 263,
-							 KEY_WWW = 264,
-							 KEY_MAIL = 265,
-							 KEY_CALCULATOR = 266,
-							 KEY_COMPUTER = 267,
-							 KEY_AC_SEARCH = 268,
-							 KEY_AC_HOME = 269,
-							 KEY_AC_BACK = 270,
-							 KEY_AC_FORWARD = 271,
-							 KEY_AC_STOP = 272,
-							 KEY_AC_REFRESH = 273,
-							 KEY_AC_BOOKMARKS = 274,
-
-							 /*@}*//*Usage page 0x0C*/
-
-								   /**
-								   *  \name Walther keys
-								   *
-								   *  These are values that Christian Walther added (for mac keyboard?).
-								   */
-								   /*@{*/
-
-								   KEY_BRIGHTNESSDOWN = 275,
-								   KEY_BRIGHTNESSUP = 276,
-								   KEY_DISPLAYSWITCH = 277, /**< display mirroring/dual display
-															switch, video mode switch */
+	KEY_AUDIONEXT = 258,
+	KEY_AUDIOPREV = 259,
+	KEY_AUDIOSTOP = 260,
+	KEY_AUDIOPLAY = 261,
+	KEY_AUDIOMUTE = 262,
+	KEY_MEDIASELECT = 263,
+	KEY_WWW = 264,
+	KEY_MAIL = 265,
+	KEY_CALCULATOR = 266,
+	KEY_COMPUTER = 267,
+	KEY_AC_SEARCH = 268,
+	KEY_AC_HOME = 269,
+	KEY_AC_BACK = 270,
+	KEY_AC_FORWARD = 271,
+	KEY_AC_STOP = 272,
+	KEY_AC_REFRESH = 273,
+	KEY_AC_BOOKMARKS = 274,
+	KEY_BRIGHTNESSDOWN = 275,
+	KEY_BRIGHTNESSUP = 276,
+	KEY_DISPLAYSWITCH = 277,
 	KEY_KBDILLUMTOGGLE = 278,
 	KEY_KBDILLUMDOWN = 279,
 	KEY_KBDILLUMUP = 280,
