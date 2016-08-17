@@ -7,6 +7,9 @@
 #include "input/Input.h"
 #include "time/Time.h"
 
+#include "../system/MemoryManager.h"
+#include "../system/MemoryStats.h"
+
 class Game
 {
 public:
@@ -33,7 +36,7 @@ private:
 	Input* m_Input;
 	SDL_Event m_Event;
 
-	// FPS-
+	// FPS
 	double m_FrameCap;
 	int m_FPS;
 	int m_UPS;

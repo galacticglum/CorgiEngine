@@ -12,10 +12,7 @@ Input::Input(Window* window) : m_Window(window), m_MouseX(0), m_MouseY(0)
 	memset(this->m_MouseButtonsUp, 0, MOUSE_BUTTON_COUNT * sizeof(bool));
 }
 
-Input::~Input()
-{
-
-}
+Input::~Input() { }
 
 void Input::Update(SDL_Event event)
 {

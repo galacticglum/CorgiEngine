@@ -8,6 +8,7 @@ class Window
 {
 public:
 	Window(unsigned int width, unsigned int height, const std::string &title);
+	~Window() { this->Destroy(); }
 	void Destroy();
 
 	void RenderTexture(SDL_Texture* texture, Rectangle* source, Rectangle* destination);

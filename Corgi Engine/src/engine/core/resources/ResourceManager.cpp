@@ -12,13 +12,13 @@ Texture* ResourceManager::LoadTexture(std::string& filePath, Window* window)
 	if (iterator != this->m_TextureMap.end())
 	{
 		iterator->second->AddReference();
-		return iterator->second.get();
+		return iterator->second;
 	}
 
-	std::unique_ptr<Texture> resource = std::make_unique<Texture>(filePath, window);
+	Texture* resource = new Texture(filePath, window);
 	resource->AddReference();
-	this->m_TextureMap.insert(std::make_pair(filePath, std::move(resource)));
-	return this->m_TextureMap.find(filePath)->second.get();
+	this->m_TextureMap.insert(std::make_pair(filePath, resource));
+	return resource;
 }
 
 void ResourceManager::DestroyTexture(Texture* texture)
@@ -32,26 +32,32 @@ void ResourceManager::DestroyTexture(Texture* texture)
 	auto iterator = this->m_TextureMap.find(texture->GetFilePath());
 	if (iterator != this->m_TextureMap.end())
 	{
-		iterator->second.get()->RemoveReference();
-		if (iterator->second.get()->GetReferenceCount() == 0)
+		iterator->second->RemoveReference();
+		if (iterator->second->GetReferenceCount() == 0)
 		{
-			std::cout << "ResourceManager::DestroyTexture: Destroyed: " << iterator->second.get()->GetFileName() << std::endl;
-			iterator->second.release();
+			std::cout << "ResourceManager::DestroyTexture: Destroyed: " << iterator->second->GetFileName() << std::endl;
+			delete iterator->second;
 			this->m_TextureMap.erase(iterator);
 		}
 	}
-
-	std::cout << "ResourceManager::DestroyTextures: cannot destroy " << texture->GetFileName() << "!" << std::endl;
+	else
+	{
+		std::cout << "ResourceManager::DestroyTexture: cannot destroy " << texture->GetFileName() << "!" << std::endl;
+	}
 }
 
 void ResourceManager::FreeResources()
 {
+	int freeCount = 0;
 	// free textures
 	auto textures = this->m_TextureMap.begin();
 	while (textures != this->m_TextureMap.end())
 	{
-		std::cout << "ResourceManager::FreeResources: freed: " << textures->second.get()->GetFileName() << std::endl;
-		textures->second.release();
+		std::cout << "ResourceManager::FreeResources: freed: " << textures->second->GetFileName() << std::endl;
+		delete textures->second;
 		textures = this->m_TextureMap.erase(textures);
+
+		freeCount++;
 	}
+	std::cout << "ResourceManager::FreeResources: Freed " << freeCount << std::endl;
 }

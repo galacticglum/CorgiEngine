@@ -5,9 +5,10 @@
 
 struct MemoryStats
 {
-	MemoryStats() : totalAllocated(0), totalFreed(0), currentUsage(0), totalAllocations(0) { }
+	MemoryStats() : totalAllocated(0), totalFreed(0), currentUsage(0), totalAllocations(0), totalDeallocated(0) { }
 
 	int totalAllocated;
+	int totalDeallocated;
 	int totalFreed;
 	int currentUsage;
 

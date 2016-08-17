@@ -15,7 +15,7 @@ public:
 	Texture* LoadTexture(std::string& filePath, Window* window);
 	void DestroyTexture(Texture* resource);
 private:
-	std::unordered_map<std::string, std::unique_ptr<Texture>> m_TextureMap;
+	std::unordered_map<std::string, Texture*> m_TextureMap;
 
 	ResourceManager(const ResourceManager&) { }
 	ResourceManager& operator=(const ResourceManager&) { return *this; }

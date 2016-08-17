@@ -27,6 +27,7 @@ void MemoryAllocator::Free(void* block)
 
 	MemoryManager::GetInstance()->m_MemoryStats.totalFreed += size;
 	MemoryManager::GetInstance()->m_MemoryStats.currentUsage -= size;
+	MemoryManager::GetInstance()->m_MemoryStats.totalDeallocated++;
 
 	C_FREE(memory);
 }

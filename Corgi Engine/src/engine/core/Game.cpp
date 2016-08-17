@@ -40,6 +40,13 @@ void Game::Run()
 	int frames = 0;
 	int updates = 0;
 
+	MemoryStats memStats = MemoryManager::GetInstance()->GetMemoryStats();
+	std::cerr << "Memory allocated: " << memStats.totalAllocated << "\n";
+	std::cerr << "Memory deallocated: " << memStats.totalDeallocated << "\n";
+	std::cerr << "Memory freed: " << memStats.totalFreed << "\n";
+	std::cerr << "Memory allocations: " << memStats.totalAllocations << "\n";
+	std::cerr << "Unreleased memory: " << memStats.currentUsage << "\n";
+
 	while (this->m_Running)
 	{
 		bool doRender = false;
@@ -81,6 +88,7 @@ void Game::Run()
 		}
 	}
 
+	this->OnQuit();
 }
 
 void Game::ProcessEvents()
@@ -113,12 +121,17 @@ void Game::Render()
 
 void Game::Destroy()
 {
-	OnQuit();
 	SDL_Quit();
-
-	// Destroy our window
 	Resources::Destroy();
 	delete this->m_Window;
 	this->m_Window = nullptr;
 	delete this->m_Input;
+	this->m_Input = nullptr;
+
+	MemoryStats memStats = MemoryManager::GetInstance()->GetMemoryStats();
+	std::cerr << "Memory allocated: " << memStats.totalAllocated << "\n";
+	std::cerr << "Memory deallocated: " << memStats.totalDeallocated << "\n";
+	std::cerr << "Memory freed: " << memStats.totalFreed << "\n";
+	std::cerr << "Memory allocations: " << memStats.totalAllocations << "\n";
+	std::cerr << "Unreleased memory: " << memStats.currentUsage << "\n";
 }

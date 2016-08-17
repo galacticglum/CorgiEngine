@@ -17,6 +17,7 @@ public:
 		std::string filePath = "res/textures/sprite.jpg";
 		this->m_Sprite = new Sprite(this->GetWindow(), filePath, SDL_BLENDMODE_BLEND);
 	}
+
 	void OnUpdate() override
 	{
 		//this->GetWindow()->SetTitle("Memory Usage: " + MemoryManager::GetInstance()->GetMemoryStats().currentUsage);
@@ -42,13 +43,16 @@ public:
 			this->m_SpriteX += speed;
 		}
 	}
+
 	void OnRender() override
 	{
 		this->m_Sprite->Draw(this->m_SpriteX, this->m_SpriteY);
 	}
+
 	void OnQuit() override
 	{
 		delete this->m_Sprite;
+		this->m_Sprite = nullptr;
 	}
 
 private:
