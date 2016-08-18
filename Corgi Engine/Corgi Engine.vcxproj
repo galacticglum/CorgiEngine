@@ -24,6 +24,8 @@
     <ClCompile Include="src\engine\core\resource\ResourceManager.cpp" />
     <ClCompile Include="src\engine\core\resource\Resources.cpp" />
     <ClCompile Include="src\engine\core\resource\Resource.cpp" />
+    <ClCompile Include="src\engine\core\scene management\Scene.cpp" />
+    <ClCompile Include="src\engine\core\scene management\SceneManager.cpp" />
     <ClCompile Include="src\engine\core\time\Time.cpp" />
     <ClCompile Include="src\engine\maths\Vector2.cpp" />
     <ClCompile Include="src\engine\maths\Rectangle.cpp" />
@@ -42,6 +44,7 @@
     <ClInclude Include="src\engine\core\resource\ResourceManager.h" />
     <ClInclude Include="src\engine\core\resource\Resources.h" />
     <ClInclude Include="src\engine\core\scene management\Scene.h" />
+    <ClInclude Include="src\engine\core\scene management\SceneManager.h" />
     <ClInclude Include="src\engine\maths\Vector2.h" />
     <ClInclude Include="src\engine\maths\Rectangle.h" />
     <ClInclude Include="src\Corgi.h" />
@@ -56,6 +59,7 @@
     <ClInclude Include="src\engine\system\MemoryAllocator.h" />
     <ClInclude Include="src\engine\system\MemoryManager.h" />
     <ClInclude Include="src\engine\system\MemoryStats.h" />
+    <ClInclude Include="src\game\scenes\GameScene.h" />
     <ClInclude Include="src\game\TestGame.h" />
   </ItemGroup>
   <ItemGroup>

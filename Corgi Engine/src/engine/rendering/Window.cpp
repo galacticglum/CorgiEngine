@@ -15,6 +15,14 @@ Window::Window(unsigned int width, unsigned int height, const std::string &title
 		return;
 	}
 
+
+	this->m_ScreenSurface = SDL_GetWindowSurface(this->m_Window);
+	if (this->m_ScreenSurface = nullptr)
+	{
+		std::cout << "Window::Initialize: Unable to get SDL_Surface from SDL_Window object!" << std::endl;
+		return;
+	}
+
 	this->m_Renderer = SDL_CreateRenderer(this->m_Window, -1, SDL_RENDERER_ACCELERATED);
 	if (this->m_Renderer == nullptr)
 	{
@@ -26,6 +34,8 @@ Window::Window(unsigned int width, unsigned int height, const std::string &title
 
 	this->m_Width = width;
 	this->m_Height = height;
+
+	this->m_ScreenSurfaceAlpha = 0;
 
 	return;
 }
@@ -60,6 +70,10 @@ void Window::SetTitle(const std::string& title)
 	SDL_SetWindowTitle(this->m_Window, title.c_str());
 }
 
+void Window::Update()
+{
+}
+
 void Window::Destroy()
 {
 	if (this->m_Renderer)
@@ -73,4 +87,20 @@ void Window::Destroy()
 		SDL_DestroyWindow(this->m_Window);
 		this->m_Window = nullptr;
 	}
+}
+
+void Window::FadeIn(float speed)
+{
+	this->m_FadeIn = true;
+	this->m_FadeOut = false;
+	this->m_FadeInSpeed = speed;
+	this->m_FadeOutSpeed = 0;
+}
+
+void Window::FadeOut(float speed)
+{
+	this->m_FadeOut = true;
+	this->m_FadeIn = false;
+	this->m_FadeOutSpeed = speed;
+	this->m_FadeInSpeed = 0;
 }

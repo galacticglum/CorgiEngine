@@ -6,6 +6,7 @@
 #include "resource/Resources.h"
 #include "input/Input.h"
 #include "time/Time.h"
+#include "scene management\SceneManager.h"
 
 #include "../system/MemoryManager.h"
 #include "../system/MemoryStats.h"
@@ -31,10 +32,12 @@ protected:
 
 	Input* GetInput() { return this->m_Input; }
 	Window* GetWindow() { return this->m_Window; }
+	SceneManager* GetSceneManager() { return this->m_SceneManager; }
 private:
 	Window* m_Window;
 	Input* m_Input;
 	SDL_Event m_Event;
+	SceneManager* m_SceneManager;
 
 	// FPS
 	double m_FrameCap;

@@ -2,29 +2,31 @@
 #define _ENGINE_SCENE_H
 
 #include "../../Engine.h"
+#include "../input/Input.h"
 
+class Input;
 class Scene
 {
+friend class SceneManager;
+public:
+	Scene() {};
+	virtual ~Scene() { this->Unload(); }
+protected:
+	virtual void OnLoad() {}
+	virtual void OnUpdate() {}
+	virtual void OnRender() {}
+	virtual void OnUnload() {}
+
+	Window* GetWindow() { return this->m_Window; }
+	Input* GetInput() { return this->m_Input; }
 private:
-	std::string m_Name;
+	Input* m_Input;
+	Window* m_Window;
+
+	void Load(Window* window, Input* input);
+	void Update();
+	void Render();
+	void Unload();
 };
-
-/*
-
-Scene is a root object
-	GameObject sprite
-		SpriteRenderer component
-
-
-GameObject root
-	GameObject sprite
-		SpriteRenderer Component
-
-
-GameObject -> updated, rendered, etc..
-
-Game : Scene
-
-*/
 
 #endif

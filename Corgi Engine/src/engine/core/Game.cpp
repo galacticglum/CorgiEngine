@@ -22,6 +22,8 @@ Game::Game(unsigned int width, unsigned int height, const std::string &title, do
 
 	Resources::Initialize();
 	m_Input = new Input(this->m_Window);
+
+	this->m_SceneManager = new SceneManager(this->m_Window, this->m_Input);
 }
 
 Game::~Game()
@@ -121,12 +123,15 @@ void Game::Update()
 {
 	ProcessEvents();
 	m_Input->Update(this->m_Event);
+	this->m_SceneManager->Update();
 	this->OnUpdate();
 }
 
 void Game::Render()
 {
 	this->m_Window->Clear();
+	this->m_Window->Update();
+	this->m_SceneManager->Render();
 	this->OnRender();
 	this->m_Window->SwapBuffers();
 }
@@ -135,8 +140,14 @@ void Game::Destroy()
 {
 	SDL_Quit();
 	Resources::Destroy();
+
 	delete this->m_Window;
 	this->m_Window = nullptr;
+
 	delete this->m_Input;
 	this->m_Input = nullptr;
+
+	this->m_SceneManager->Destroy();
+	delete this->m_SceneManager;
+	this->m_SceneManager = nullptr;
 }

@@ -30,6 +30,8 @@
     <ClCompile Include="src\engine\core\Game.cpp">
       <Filter>src\engine\core</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\core\scene management\Scene.cpp" />
+    <ClCompile Include="src\engine\core\scene management\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\TestGame.h">
@@ -77,6 +79,8 @@
     <ClInclude Include="src\engine\core\Game.h">
       <Filter>src\engine\core</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\core\scene management\SceneManager.h" />
+    <ClInclude Include="src\game\scenes\GameScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
