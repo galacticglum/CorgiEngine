@@ -1,12 +1,16 @@
 #ifndef _ENGINE_COLOR_H
 #define _ENGINE_COLOR_H
 
+#include "../Engine.h"
+
 struct Color
 {
-	Color(float r, float g, float b) : Color(r, g, b, 255) {}
-	Color(float r, float g, float b, float a) : R(r), G(g), B(b), A(a) { }
+	Color(Uint8 r, Uint8 g, Uint8 b) : Color(r, g, b, 255) {}
+	Color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) : R(r), G(g), B(b), A(a) { }
 
-	float R, G, B, A;
+	SDL_Color GetSDLColour() { return{ this->R, this->G, this->B, this->A }; }
+
+	Uint8 R, G, B, A;
 };
 
 #endif

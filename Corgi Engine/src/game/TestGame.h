@@ -4,7 +4,7 @@
 #include "../Corgi.h"
 #include "scenes\GameScene.h"
 
-class TestGame : Game
+class TestGame : public Game
 {
 public:
 	TestGame(unsigned int width, unsigned int height, const std::string &title) : TestGame(width, height, title, 60.0) { }

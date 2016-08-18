@@ -1,10 +1,8 @@
 #include "Scene.h"
 
-void Scene::Load(Window* window, Input* input)
+void Scene::Load(Game* game)
 {
-	this->m_Window = window;
-	this->m_Input = input;
-
+	this->m_Game = game;
 	this->OnLoad();
 }
 

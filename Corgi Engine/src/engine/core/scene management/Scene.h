@@ -17,13 +17,11 @@ protected:
 	virtual void OnRender() {}
 	virtual void OnUnload() {}
 
-	Window* GetWindow() { return this->m_Window; }
-	Input* GetInput() { return this->m_Input; }
+	Game* GetGame() { return this->m_Game; }
 private:
-	Input* m_Input;
-	Window* m_Window;
+	Game* m_Game;
 
-	void Load(Window* window, Input* input);
+	void Load(Game* game);
 	void Update();
 	void Render();
 	void Unload();

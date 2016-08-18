@@ -19,8 +19,8 @@ public:
 	void Crop(const Rectangle& rectangle);
 	// TODO: void Clip(const Vector2& positon, int width, int height);
 
-	void SetTint(float r, float g, float b) { SetTint(Color(r, g, b)); }
-	void SetTint(float r, float g, float b, float a) { SetTint(Color(r, g, b, a)); }
+	void SetTint(Uint8 r, Uint8 g, Uint8 b) { SetTint(Color(r, g, b)); }
+	void SetTint(Uint8 r, Uint8 g, Uint8 b, float a) { SetTint(Color(r, g, b, a)); }
 	void SetTint(Color &color);
 
 	void Draw(float x, float y);

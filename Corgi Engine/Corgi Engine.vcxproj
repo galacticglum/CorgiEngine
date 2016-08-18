@@ -154,7 +154,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;Box2D/Box2D.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;SDL/SDL2_ttf.lib;Box2D/Box2D.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command> xcopy /d /y "$(SolutionDir)lib\32bit\dll\*.dll" "$(OutDir)"
@@ -173,7 +173,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;Box2D/Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;SDL/SDL2_ttf.lib;Box2D/Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command> xcopy /d /y "$(SolutionDir)lib\64bit\dll\*.dll" "$(OutDir)"
@@ -196,7 +196,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;Box2D/Box2D.lib</AdditionalDependencies>
+      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;SDL/SDL2_ttf.lib;Box2D/Box2D.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command> xcopy /d /y "$(SolutionDir)lib\32bit\dll\*.dll" "$(OutDir)"
@@ -221,7 +221,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;Box2D/Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL/SDL2.lib;SDL/SDL2main.lib;SDL/SDL2_image.lib;SDL/SDL2_ttf.lib;Box2D/Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command> xcopy /d /y "$(SolutionDir)lib\64bit\dll\*.dll" "$(OutDir)"

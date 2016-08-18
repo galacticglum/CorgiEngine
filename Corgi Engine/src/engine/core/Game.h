@@ -27,12 +27,12 @@ public:
 
 	int GetFPS() { return m_FPS; }
 	int GetUPS() { return m_UPS; }
-protected:
-	void Run();
 
 	Input* GetInput() { return this->m_Input; }
 	Window* GetWindow() { return this->m_Window; }
 	SceneManager* GetSceneManager() { return this->m_SceneManager; }
+protected:
+	void Run();
 private:
 	Window* m_Window;
 	Input* m_Input;

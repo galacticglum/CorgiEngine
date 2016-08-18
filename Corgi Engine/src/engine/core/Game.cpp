@@ -17,13 +17,19 @@ Game::Game(unsigned int width, unsigned int height, const std::string &title, do
 		return;
 	}
 
+	if (TTF_Init() != 0)
+	{
+		std::cout << "Game::Game: Could not initialize SDL_TTF: " << SDL_GetError() << std::endl;
+		return;
+	}
+
 	this->m_Window = new Window(width, height, title);
 	m_Running = true;
 
 	Resources::Initialize();
 	m_Input = new Input(this->m_Window);
 
-	this->m_SceneManager = new SceneManager(this->m_Window, this->m_Input);
+	this->m_SceneManager = new SceneManager(this);
 }
 
 Game::~Game()
@@ -138,6 +144,10 @@ void Game::Render()
 
 void Game::Destroy()
 {
+	this->m_SceneManager->Destroy();
+	delete this->m_SceneManager;
+	this->m_SceneManager = nullptr;
+
 	SDL_Quit();
 	Resources::Destroy();
 
@@ -146,8 +156,4 @@ void Game::Destroy()
 
 	delete this->m_Input;
 	this->m_Input = nullptr;
-
-	this->m_SceneManager->Destroy();
-	delete this->m_SceneManager;
-	this->m_SceneManager = nullptr;
 }
