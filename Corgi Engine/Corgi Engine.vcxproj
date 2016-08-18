@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="src\engine\core\Game.cpp" />
     <ClCompile Include="src\engine\core\input\Input.cpp" />
-    <ClCompile Include="src\engine\core\object\GameObject.cpp" />
     <ClCompile Include="src\engine\core\resource\ResourceManager.cpp" />
     <ClCompile Include="src\engine\core\resource\Resources.cpp" />
     <ClCompile Include="src\engine\core\resource\Resource.cpp" />
@@ -37,15 +36,12 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\engine\core\object\Component.h" />
-    <ClInclude Include="src\engine\core\object\GameObject.h" />
     <ClInclude Include="src\engine\core\input\Input.h" />
     <ClInclude Include="src\engine\core\input\InputDefinitions.h" />
     <ClInclude Include="src\engine\core\resource\Resource.h" />
     <ClInclude Include="src\engine\core\resource\ResourceManager.h" />
     <ClInclude Include="src\engine\core\resource\Resources.h" />
     <ClInclude Include="src\engine\core\scene management\Scene.h" />
-    <ClInclude Include="src\engine\core\object\Transform.h" />
     <ClInclude Include="src\engine\maths\Vector2.h" />
     <ClInclude Include="src\engine\maths\Rectangle.h" />
     <ClInclude Include="src\Corgi.h" />

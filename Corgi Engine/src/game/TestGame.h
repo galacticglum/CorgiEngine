@@ -14,14 +14,12 @@ public:
 
 	void OnInitialize() override
 	{
-		std::string filePath = "res/textures/sprite.jpg";
+		std::string filePath = "res/textures/player.png";
 		this->m_Sprite = new Sprite(this->GetWindow(), filePath, SDL_BLENDMODE_BLEND);
 	}
 
 	void OnUpdate() override
 	{
-		//this->GetWindow()->SetTitle("Memory Usage: " + MemoryManager::GetInstance()->GetMemoryStats().currentUsage);
-
 		float speed = 100.0f * Time::GetDeltaTime();
 		if (GetInput()->GetKey(Key::KEY_W))
 		{

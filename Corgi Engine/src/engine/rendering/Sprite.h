@@ -24,6 +24,7 @@ public:
 	void SetTint(Color &color);
 
 	void Draw(float x, float y);
+	void Draw(const Vector2 position) { this->Draw(position.X, position.Y); }
 	void Refresh();
 
 	void Scale(const Vector2& scale);
